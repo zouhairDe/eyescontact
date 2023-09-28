@@ -1,0 +1,133 @@
+/* Default styles for larger screens */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    cursor: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(#6495ED, #00FFFF);
+}
+
+/* Style the custom cursor */
+.custom-cursor {
+    width: 50px; /* Set the width of the cursor image */
+    height: 50px; /* Set the height of the cursor image */
+    background-image: url('eye.png'); /* Specify the path to your custom cursor image */
+    background-size: cover;
+    position: absolute;
+    pointer-events: none; /* Ensure that the cursor doesn't interfere with interactions */
+    transform: translate(-50%, -50%); /* Center the cursor on the mouse position */
+    z-index: 9999; /* Set a high z-index to ensure it's on top of all other elements */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center; /* Center the text within the container */
+}
+
+.box {
+    display: flex;
+}
+
+.box .eye {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    margin: 10px; /* Add vertical and horizontal margin between the eyes */
+    border-radius: 50%;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.2),
+        inset 0 0 15px #959f9f,
+        inset 0 0 25px #5476b5;
+}
+
+.box .eye::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45px;
+    height: 45px;
+    background: black;
+    border-radius: 50%;
+    left: 35px;
+    transform: translate(-50%, -50%);
+    border: 10px solid #382e2e;
+    box-sizing: border-box;
+}
+
+input {
+    font-size: 1em;
+    width: 80%; /* Make the input field wider for smaller screens */
+    margin-top: 10px; /* Add margin to space it from the eyes */
+    padding: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
+}
+
+button {
+    margin-top: 10px; /* Add margin to space it from the input field */
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Media query for smaller screens (max-width: 600px) */
+@media screen and (max-width: 600px) {
+    .container {
+        margin-top: 10px; /* Reduce the top margin for smaller screens */
+    }
+
+    .box {
+        display: flex;
+         /* Stack the eyes vertically for smaller screens */
+    }
+
+    .box .eye {
+        width: 80px; /* Make the eyes smaller for smaller screens */
+        height: 80px;
+        margin: 10px 0; /* Add vertical margin between the eyes */
+    }
+
+    input {
+        width: 80%; /* Make the input field wider for smaller screens */
+        font-size: 0.8em; /* Reduce the font size for smaller screens */
+        margin-top: 10px; /* Add margin to space it from the eyes */
+    }
+
+    button {
+        font-size: 0.8em; /* Reduce the button font size for smaller screens */
+        margin-top: 10px; /* Add margin to space it from the input field */
+    }
+}
+
+/* Disable custom cursor for specific elements */
+input:hover, button:hover {
+    cursor: none; /* Use the default cursor when hovering over input and button elements */
+}
